@@ -1,0 +1,49 @@
+1. cd C:\kafka_2.12-3.9.1
+
+2. Initialize the zookeeper
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+
+3. Initialize the kafka
+
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+4. Create Topic
+C:\kafka_2.13-3.9.0> C:\kafka_2.12-3.9.1
+
+.\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1 --topic real-time-11
+
+
+.\bin\windows\kafka-topics.bat --create --topic bus-locations --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
+5. LISTING TOPICS
+C:\kafka_2.12-3.9.1\
+
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+6. DESCRIBE TOPICS
+ C:\kafka_2.12-3.9.1\
+
+.\bin\windows\kafka-topics.bat --describe --bootstrap-server localhost:9092 --topic real-time
+
+7.Running the producer
+C:\kafka_2.12-3.9.1\
+
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic real-time-11
+
+>hello students
+>today is ur CA
+>today is ur last class
+
+
+
+8. Running the consumer
+C:\Windows\System32>cd C:\kafka_2.12-3.9.1
+
+
+C:\kafka_2.12-3.9.1>C:\kafka_2.12-3.9.1\
+
+.\bin\windows\kafka-console-consumer.bat --topic real-time-11 --bootstrap-server localhost:9092 --from-beginning
+hello students
+today is ur CA
+today is ur last class
